@@ -21087,10 +21087,32 @@
 /* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
+	// Importando
 	var React = __webpack_require__(1);
+	var SerachUser = __webpack_require__(173);
 
 	var GitHub = React.createClass({
-		displayName: "GitHub",
+		displayName: 'GitHub',
+
+		render: function () {
+			return React.createElement(
+				'div',
+				{ className: 'container' },
+				React.createElement(SerachUser, null)
+			);
+		}
+	});
+
+	module.exports = GitHub;
+
+/***/ },
+/* 173 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+
+	var SearchUser = React.createClass({
+		displayName: "SearchUser",
 
 		handleSubmit: function (e) {
 			e.preventDefault();
@@ -21099,42 +21121,38 @@
 		render: function () {
 			return React.createElement(
 				"div",
-				{ className: "container" },
+				{ className: "jumbotron" },
+				React.createElement(
+					"h1",
+					null,
+					"GitHub Info"
+				),
 				React.createElement(
 					"div",
-					{ className: "jumbotron" },
+					{ className: "row" },
 					React.createElement(
-						"h1",
-						null,
-						"GitHub Info"
-					),
-					React.createElement(
-						"div",
-						{ className: "row" },
+						"form",
+						{ onSubmit: this.handleSubmit },
 						React.createElement(
-							"form",
-							{ onSubmit: this.handleSubmit },
+							"div",
+							{ className: "form-group" },
 							React.createElement(
-								"div",
-								{ className: "form-group" },
-								React.createElement(
-									"label",
-									null,
-									"Username"
-								),
-								React.createElement("input", { type: "text",
-									ref: "username",
-									className: "form-control",
-									placeholder: "Ex: matheusml"
-								})
+								"label",
+								null,
+								"Username"
 							),
-							React.createElement(
-								"button",
-								{
-									type: "submit",
-									className: "btn btn-primary" },
-								"Buscar"
-							)
+							React.createElement("input", { type: "text",
+								ref: "username",
+								className: "form-control",
+								placeholder: "Ex: matheusml"
+							})
+						),
+						React.createElement(
+							"button",
+							{
+								type: "submit",
+								className: "btn btn-primary" },
+							"Buscar"
 						)
 					)
 				)
@@ -21142,7 +21160,7 @@
 		}
 	});
 
-	module.exports = GitHub;
+	module.exports = SearchUser;
 
 /***/ }
 /******/ ]);
